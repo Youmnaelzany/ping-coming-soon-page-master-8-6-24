@@ -4,5 +4,138 @@ import '@/styles/globals.css';
 ---
 
 <Layout title='Ping coming soon page.'>
-  <main></main>
+  <main
+    class='mb-[2.31rem] mt-[5.06rem] flex flex-col items-center justify-center'
+  >
+    <section
+      class='mb-[4.5rem] ml-[2.31rem] mr-9 mt-[5.06rem] flex flex-col items-center justify-center gap-8 text-center md:mb-[5.88rem] md:gap-10'
+    >
+      <div class=''>
+        <img src='/public/images/logo.svg' alt='' class='' />
+      </div>
+      <div class=''>
+        <h1
+          class='mb-4 text-[1.375rem] font-light leading-8 text-[#969696] md:text-[3rem] md:leading-[3.75rem]'
+        >
+          We are launching <span class='font-bold text-[#15202A]'>soon!</span>
+        </h1>
+        <h2 class='text-xs font-light leading-normal text-[#15202A] md:text-lg'>
+          Subscribe and get notified
+        </h2>
+      </div>
+      <form action='' id='myForm' novalidate class='relative'>
+        <div
+          class='flex flex-col items-center justify-center gap-4 md:flex-row'
+        >
+          <label for='userEmail' class=''>
+            <input
+              type='email'
+              name='userEmail'
+              id='userEmail'
+              placeholder='Your email address…'
+              class='h-10 w-[17.5625rem] rounded-[1.75rem] border border-solid border-[#C2D3FF] pl-8 text-xs font-light leading-5 text-[#15202A] outline-none placeholder:text-[#B8C7ED] md:h-14 md:w-[26.3125rem] md:text-base'
+            />
+          </label>
+          <h3
+            class='absolute -bottom-6 left-8 mt-0 hidden text-xs font-normal italic leading-5 text-[#FF5466]'
+            id='errorMessage'
+          >
+            Please provide a valid email address
+          </h3>
+          <h3
+            class='absolute -bottom-8 left-8 mt-0 hidden text-xs font-normal italic leading-5 text-[#4C7BF3]'
+            id='emptyMessage'
+          >
+            Whoops! It looks like you forgot to add your email
+          </h3>
+
+          <button
+            type='submit'
+            class='btn h-10 w-[17.5625rem] rounded-[1.75rem] bg-[#4C7BF3] text-white transition-colors duration-300 ease-in hover:bg-[#7196f5] md:h-14 md:w-[12.5rem]'
+          >
+            Notify Me
+          </button>
+        </div>
+      </form>
+    </section>
+    <picture>
+      <source
+        media='(min-width: 768px)'
+        srcset='/public/images/illustration-dashboard.png'
+      />
+      <img
+        src='/public/images/illustration-dashboard.png'
+        alt=''
+        class='mx-7 mr-[1.69rem] w-[20.4375rem] md:w-[40rem]'
+      />
+    </picture>
+    <section
+      class='mt-[8.26rem] flex flex-col items-center justify-center gap-[1.69rem] text-center md:mt-[6.02rem]'
+    >
+      <!-- Social Media Icons -->
+      <div
+        class='flex items-center justify-center gap-4 md:items-end md:justify-end'
+      >
+        <a
+          href='/'
+          class='flex h-[1.75rem] w-[1.69638rem] items-center justify-center rounded-full border border-solid border-[#4C7BF326] text-[#4C7BF3] transition-colors duration-300 ease-in hover:bg-[#4C7BF3] hover:text-white'
+        >
+          <i class='fa-brands fa-facebook-f'></i>
+        </a>
+        <a
+          href='/'
+          class='flex h-[1.75rem] w-[1.69638rem] items-center justify-center rounded-full border border-solid border-[#4C7BF326] text-[#4C7BF3] transition-colors duration-300 ease-in hover:bg-[#4C7BF3] hover:text-white'
+        >
+          <i class='fa-brands fa-twitter'></i>
+        </a>
+        <a
+          href='/'
+          class='flex h-[1.75rem] w-[1.69638rem] items-center justify-center rounded-full border border-solid border-[#4C7BF326] text-[#4C7BF3] transition-colors duration-300 ease-in hover:bg-[#4C7BF3] hover:text-white'
+        >
+          <i class='fa-brands fa-instagram'></i>
+        </a>
+      </div>
+      <h3
+        class='text-[0.625rem] font-light leading-normal text-[#969696] md:text-xs'
+      >
+        &copy; Copyright Ping. All rights reserved.
+      </h3>
+    </section>
+  </main>
 </Layout>
+
+<style is:inline>
+  input {
+    box-shadow: 0px 0px 7px 3px rgba(0, 0, 0, 0);
+  }
+  button {
+    box-shadow: 0px 5px 10px 2px rgba(76, 123, 243, 0.23);
+  }
+</style>
+
+<script is:inline>
+  const form = document.querySelector('form');
+  const emailInput = document.querySelector('#userEmail');
+  const errorMessage = document.querySelector('#errorMessage');
+  const emptyMessage = document.querySelector('#emptyMessage');
+  const emailRegex =
+    /^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/;
+
+  form.addEventListener('submit', (event) => {
+    const emailValue = emailInput.value.trim();
+
+    if (!emailRegex.test(emailValue)) {
+      event.preventDefault();
+      errorMessage.classList.remove('hidden');
+      emptyMessage.classList.add('hidden');
+      emailInput.style.borderColor = '#FF5466';
+    } else if (emailValue === ' . ') {
+      event.preventDefault();
+      emptyMessage.classList.remove('hidden');
+      errorMessage.classList.add('hidden');
+      emailInput.style.borderColor = '#FF5466';
+    } else {
+      emailInput.style.borderColor = '#2ecc71';
+    }
+  });
+</script>

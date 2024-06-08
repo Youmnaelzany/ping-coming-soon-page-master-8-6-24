@@ -4,7 +4,8 @@ interface Props {
   description?: string;
 }
 
-const {title = 'Frontend Mentor | Ping coming soon page',
+const {
+  title = 'Frontend Mentor | Ping coming soon page',
   description = 'Frontend Mentor | Ping coming soon page',
 } = Astro.props;
 ---
@@ -15,12 +16,28 @@ const {title = 'Frontend Mentor | Ping coming soon page',
     <meta charset='UTF-8' />
     <meta name='description' content={description} />
     <meta name='viewport' content='width=device-width' />
-    <link rel='icon' type='image/svg+xml' href='/public/images/favicon-32x32.png' />
+    <link
+      rel='icon'
+      type='image/svg+xml'
+      href='/public/images/favicon-32x32.png'
+    />
     <meta name='generator' content={Astro.generator} />
     <!-- Google Fonts -->
-     <link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Libre+Franklin:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+    <link rel='preconnect' href='https://fonts.googleapis.com' />
+    <link rel='preconnect' href='https://fonts.gstatic.com' crossorigin />
+    <link
+      href='https://fonts.googleapis.com/css2?family=Libre+Franklin:ital,wght@0,100..900;1,100..900&display=swap'
+      rel='stylesheet'
+    />
+    <!-- Font Awesome -->
+    <link
+      rel='stylesheet'
+      href='https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css'
+      integrity='sha512-SnH5WK+bZxgPHs44uWIX+LLJAJ9/2PkPKZ5QiAj6Ta86w+fsb2TkcmfRyVX3pBnMFcV7oQPJkl9QevSCWr3W6A=='
+      crossorigin='anonymous'
+      referrerpolicy='no-referrer'
+    />
+
     <title>{title}</title>
   </head>
   <body>
@@ -43,7 +60,7 @@ const {title = 'Frontend Mentor | Ping coming soon page',
 
   body {
     min-height: 100svh;
-      font-family: "Libre Franklin", sans-serif;
+    font-family: 'Libre Franklin', sans-serif;
   }
 
   img,
